@@ -29,7 +29,10 @@
         component.set('v.selectedType',component.find('boatSelect').get('v.value'));
     },
 
-    searchBoats: function(component,event,helper){
-        $A.get('e.c:SearchBoatEvent').setParams({'boatType':component.get('v.selectedType')}).fire();
+    onFormSubmit: function(component,event,helper){
+        let formSubmit = component.getEvent('formsubmit');
+        let formData = { boatTypeId : component.get('v.selectedType')};
+        formSubmit.setParams({'formData' : formData});
+        formSubmit.fire();
     }
 })

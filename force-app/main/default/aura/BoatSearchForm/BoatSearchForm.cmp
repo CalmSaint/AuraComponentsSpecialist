@@ -8,7 +8,7 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
     <!--Events Fired-->
-    <aura:registerEvent name="searchEvent" type="c:SearchBoatEvent"/>
+    <aura:registerEvent name="formsubmit" type="c:FormSubmit"/>
 
     <!--Component body-->
     <lightning:layout verticalAlign="end" horizontalAlign="center">
@@ -21,7 +21,7 @@
                 </aura:iteration>
             </aura:if>
         </lightning:select>
-        <lightning:button variant="brand" label="Search" onclick="{!c.searchBoats}"/>
+        <lightning:button variant="brand" label="Search" onclick="{!c.onFormSubmit}"/>
         <aura:if isTrue="{!v.showNewButton}">
             <lightning:button label="New" onclick="{!c.createNewBoat}"/>
         </aura:if>

@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="Boat Search Event">
-    <aura:attribute name="boatType" type="String" default="" />
-</aura:event>

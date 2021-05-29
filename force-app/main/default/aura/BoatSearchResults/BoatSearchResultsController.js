@@ -3,8 +3,8 @@
         helper.onSearch(component,event);
     },
 
-    handleBoatSearch: function(component,event,helper){
-        component.set('v.selectedType',event.getParam('boatType'));
+    doSearch: function(component,event,helper){
+        component.set('v.boatTypeId',event.getParam('arguments').boatTypeId);
         helper.onSearch(component,event);
     }
 })
