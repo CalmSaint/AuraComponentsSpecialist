@@ -7,7 +7,6 @@
         var action = component.get('c.getAvailableBoatTypes');
         action.setCallback(this,function(response){
             if(response.getState()==='SUCCESS'){
-                console.log(response.getReturnValue());
                 component.set('v.boatTypes',response.getReturnValue());
             }
         });
@@ -28,5 +27,9 @@
 
     onTypeChange: function(component,event,helper){
         component.set('v.selectedType',component.find('boatSelect').get('v.value'));
+    },
+
+    searchBoats: function(component,event,helper){
+        $A.get('e.c:SearchBoatEvent').setParams({'boatType':component.get('v.selectedType')}).fire();
     }
 })

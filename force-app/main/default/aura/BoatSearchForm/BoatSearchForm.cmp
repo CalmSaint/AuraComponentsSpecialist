@@ -1,10 +1,14 @@
-<aura:component controller="FetchAllBoatTypes" implements="flexipage:availableForAllPageTypes" access="global">
+<aura:component controller="ACS_HowWeRollCTRL" implements="flexipage:availableForAllPageTypes" access="global">
     <!--Attributes-->
     <aura:attribute name="boatTypes" type="BoatType__c[]" default="[]" description="all available boat types" />
     <aura:attribute name="showNewButton" type="Boolean" default="true" />
     <aura:attribute name="selectedType" type="String" default="" />
+    <aura:attribute name="boatResults" type="Boat__c[]" default="[]" />
     <!--handlers-->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!--Events Fired-->
+    <aura:registerEvent name="searchEvent" type="c:SearchBoatEvent"/>
 
     <!--Component body-->
     <lightning:layout verticalAlign="end" horizontalAlign="center">
@@ -17,7 +21,7 @@
                 </aura:iteration>
             </aura:if>
         </lightning:select>
-        <lightning:button variant="brand" label="Search" />
+        <lightning:button variant="brand" label="Search" onclick="{!c.searchBoats}"/>
         <aura:if isTrue="{!v.showNewButton}">
             <lightning:button label="New" onclick="{!c.createNewBoat}"/>
         </aura:if>
