@@ -1,0 +1,26 @@
+<aura:component controller="FetchAllBoatTypes" implements="flexipage:availableForAllPageTypes" access="global">
+    <!--Attributes-->
+    <aura:attribute name="boatTypes" type="BoatType__c[]" default="[]" description="all available boat types" />
+    <aura:attribute name="showNewButton" type="Boolean" default="true" />
+    <aura:attribute name="selectedType" type="String" default="" />
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!--Component body-->
+    <lightning:layout verticalAlign="end" horizontalAlign="center">
+
+        <lightning:select aura:id="boatSelect" name="boatTypes" variant="label-hidden" onchange="{!c.onTypeChange}">
+            <option value="">All types</option>
+            <aura:if isTrue="{!not(empty(v.boatTypes))}">
+                <aura:iteration items="{!v.boatTypes}" var="thisType">
+                    <option value="{!thisType.Id}">{!thisType.Name}</option>
+                </aura:iteration>
+            </aura:if>
+        </lightning:select>
+        <lightning:button variant="brand" label="Search" />
+        <aura:if isTrue="{!v.showNewButton}">
+            <lightning:button label="New" onclick="{!c.createNewBoat}"/>
+        </aura:if>
+    </lightning:layout>
+
+</aura:component>
