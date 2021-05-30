@@ -4,6 +4,7 @@
 
     <!--Handlers-->
     <aura:handler event="c:BoatSelected" action="{!c.onBoatSelected}" />
+    <aura:handler name="BoatReviewAdded" event="c:BoatReviewAdded" action="{!c.onBoatReviewAdded}" />
 
     <force:recordData 
                     aura:id="service"
@@ -16,13 +17,14 @@
     <!--component body-->
     <lightning:card>
         <aura:if isTrue="{!!empty(v.boat)}">
-            <lightning:tabset>
-                <lightning:tab label="DETAILS">
+            <lightning:tabset aura:id="tabs" selectedTabId="boatdetailstab">
+                <lightning:tab id="boatdetailstab" label="DETAILS">
                     <c:BoatDetail boat="{!v.boat}"/>
                 </lightning:tab>
-                <lightning:tab label="REVIEWS">
+                <lightning:tab id="boatreviewtab" label="REVIEWS">
                 </lightning:tab>
-                <lightning:tab label="ADD REVIEW">
+                <lightning:tab id="boataddreviewtab" label="ADD REVIEW">
+                    <c:AddBoatReview boat="{!v.boat}"/>
                 </lightning:tab>
             </lightning:tabset>
         </aura:if>
