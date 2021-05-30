@@ -15,7 +15,7 @@
             </div>
             <aura:set attribute="else">
                 <div class="slds-feed">
-                    <div class="slds-feed_list">
+                    <ul class="slds-feed_list" style="list-style-type:none">
                         <aura:iteration items="{!v.boatReviews}" var="boatReview">
                             <li class="slds-feed_item">
                                 <article class="slds-post">
@@ -46,12 +46,13 @@
                                     <div class="slds-post__content slds-text-longform">
                                         <p>
                                             <lightning:formattedRichText value="{!boatReview.Comment__c}" />
+                                            <c:FiveStarRating value="{!boatReview.Rating__c}" readonly="true"/>
                                         </p>
                                     </div>
                                 </article>
                             </li>
                         </aura:iteration>
-                    </div>
+                    </ul>
                 </div>
 
             </aura:set>

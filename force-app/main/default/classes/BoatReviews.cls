@@ -1,5 +1,5 @@
 public with sharing class BoatReviews {
-    @AuraEnabled(Cacheable=true)
+    @AuraEnabled
     public static List<BoatReview__c> getAll(Id boatId){
         try{
             return [SELECT Id, 

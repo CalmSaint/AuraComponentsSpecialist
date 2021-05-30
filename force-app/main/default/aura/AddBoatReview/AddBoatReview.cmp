@@ -12,7 +12,7 @@
     <!--LDS-->
     <force:recordData aura:id="service" 
                     targetFields="{!v.boatReview}" 
-                    fields="Name,Comment__c,Boat__c"
+                    fields="Name,Comment__c,Boat__c,Rating__c"
                     recordUpdated="{!c.onRecordUpdated}" 
                     targetError="{!v.recordError}"
                     />
@@ -26,6 +26,10 @@
             <lightning:layoutItem size="12" flexibility="auto">
                 <lightning:inputRichText labelVisible="true" label="Description"
                     value="{!v.boatReview.Comment__c}" disabledCategories="FORMAT_FONT" />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" flexibility="auto">
+                <label class="slds-form-element__label" >Rating</label>
+                <c:FiveStarRating value="{!v.boatReview.Rating__c}"/>
             </lightning:layoutItem>
         </lightning:layout>
         <div class="slds-align_absolute-center slds-m-top_small">
