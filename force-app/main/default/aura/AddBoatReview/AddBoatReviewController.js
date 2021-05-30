@@ -1,6 +1,6 @@
 ({
     doInit:function(component,event,helper){
-        helper.onInit(component,event,helper);
+        helper.onInit(component,event);
     },
 
     onRecordUpdated : function(component, event, helper) {
