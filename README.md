@@ -14,4 +14,8 @@ This repository will hold the components related to Aura Component specialist su
 
 [Display boat details](https://github.com/CalmSaint/AuraComponentsSpecialist/tree/085a5f1a05ad539b50e58f0f24f6a4dc96c46cef)
 
+[Add boat reviews](https://github.com/CalmSaint/AuraComponentsSpecialist/tree/4108967aef9af77616514c09189debda7a1dd755)
+
+[Display boat reviews](https://github.com/CalmSaint/AuraComponentsSpecialist/tree/7ab2ed8d751d83709e9f9bab56f8974b5e78cccb)
+
 
