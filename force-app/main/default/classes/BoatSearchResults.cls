@@ -3,7 +3,7 @@ public with sharing class BoatSearchResults {
     @AuraEnabled
     public static List<Boat__c> getBoats(String boatTypeId){
         try {
-            String query='SELECT Id, Name, Contact__r.Name, Picture__c FROM Boat__c ';
+            String query='SELECT Id, Name, Contact__r.Name, Picture__c, Geolocation__latitude__s, Geolocation__longitude__s  FROM Boat__c ';
             if(String.isNotBlank(boatTypeId)){
                 query+=' WHERE BoatType__c=:boatTypeId ';
             }

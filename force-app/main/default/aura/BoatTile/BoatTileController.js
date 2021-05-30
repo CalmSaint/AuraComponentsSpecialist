@@ -7,5 +7,10 @@
         let boatSelectedEvent = $A.get('e.c:BoatSelected');
         boatSelectedEvent.setParams({ 'boat' : component.get('v.boat') });
         boatSelectedEvent.fire();
+
+        let plotMapMarkerEvent = $A.get('e.c:PlotMapMarker');
+        plotMapMarkerEvent.setParams({'lat':component.get('v.boat.Geolocation__Latitude__s'),
+                                      'long':component.get('v.boat.Geolocation__Longitude__s')});
+        plotMapMarkerEvent.fire();
     }
 })
